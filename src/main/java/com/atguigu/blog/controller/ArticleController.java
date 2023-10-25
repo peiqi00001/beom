@@ -20,30 +20,55 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+    /**
+     * 获取文章列表
+     * @param cid
+     * @return
+     */
     @GetMapping("/findListByCid")
     public Result findListByCid(Long cid) {
         List<Article> articleList = articleService.findListByCid(cid);
         return Result.ok(articleList);
     }
 
+    /**
+     * 根据id获取文章信息
+     * @param id
+     * @return
+     */
     @GetMapping("/getById")
     public Result getById(Long id) {
         Article article = articleService.getById(id);
         return Result.ok(article);
     }
 
+    /**
+     * 添加文章
+     * @param article
+     * @return
+     */
     @PostMapping("/insert")
     public Result insert(@RequestBody Article article) {
         articleService.insert(article);
         return Result.ok();
     }
 
+    /**
+     * 删除文章
+     * @param id
+     * @return
+     */
     @DeleteMapping("/delete")
     public Result delete(Integer id) {
         articleService.delete(id);
         return Result.ok();
     }
 
+    /**
+     * 修改文章
+     * @param article
+     * @return
+     */
     @PutMapping("/update")
     public Result update(@RequestBody Article article) {
         articleService.update(article);
