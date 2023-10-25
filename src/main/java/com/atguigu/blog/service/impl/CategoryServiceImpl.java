@@ -1,5 +1,6 @@
 package com.atguigu.blog.service.impl;
 
+import com.atguigu.blog.mapper.CategoryMapper;
 import com.atguigu.blog.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,5 +14,5 @@ import org.springframework.stereotype.Service;
 @Service
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
-    private CategoryService categoryService;
+    private CategoryMapper categoryMapper;
 }

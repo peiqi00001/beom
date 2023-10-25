@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.blog.mapper.ArticleMapper">
+    <insert id="insert">
+        insert into article values (null,#{title},#{content},#{cid},#{uid},now(),now())
+    </insert>
+    <update id="update">
+    update article
+    set title=#{title},content=#{content},cid=#{cid},uid=#{uid},update_time=now()
+    where id=#{id}
+    </update>
+    <delete id="delete">
+    delete from article where id=#{id}
+    </delete>
 
+    <select id="findListByCid" resultType="com.atguigu.blog.entity.Article">
+        select * from article
+        <where>
+            <if test="cid!=null and cid!='' and cid!=0">
+                cid=#{cid}
+            </if>
+        </where>
+    </select>
+    <select id="getById" resultType="com.atguigu.blog.entity.Article">
+        select * from article where id = #{id}
+    </select>
 </mapper>

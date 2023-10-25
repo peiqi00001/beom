@@ -1,5 +1,6 @@
 package com.atguigu.blog.service.impl;
 
+import com.atguigu.blog.mapper.UserMapper;
 import com.atguigu.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,5 +14,5 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired
-    private UserService userService;
+    private UserMapper userMapper;
 }
