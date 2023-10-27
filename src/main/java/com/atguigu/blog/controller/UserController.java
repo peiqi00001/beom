@@ -3,6 +3,10 @@ package com.atguigu.blog.controller;
 import com.atguigu.blog.entity.User;
 import com.atguigu.blog.service.UserService;
 import com.atguigu.blog.utils.Result;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
  * @Version: 1.0
  * @Description:用户Controller层
  */
+@CrossOrigin
+@Tag(name = "用户模块")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -23,6 +29,7 @@ public class UserController {
      * @param id
      * @return
      */
+    @Operation(summary = "根据id获取用户信息")
     @GetMapping("/{id}")
     public Result findUserById(@PathVariable Long id) {
         User user = userService.findUserById(id);
@@ -39,19 +46,24 @@ public class UserController {
         userService.updateUser(user);
         return Result.ok(user);
     }
+
     /**
-     * - 业务说明:
-     *   - 当用户发布文章时,应该先登录,如果已经登录,则跳转后端页面.
-     *   - 要求用户输入用户名和密码不能为null,之后发送给服务器进行校验
-     *   - 校验时,应该将密码进行加密处理. MD5加密
-     *   - 如果登录成功之后,应该返回用户信息uid和name
-     *   - 之后前端接收到用户信息之后,将数据保存到Cookie中. 方便以后校验使用.
-     * - URL地址:
-     *   - http://localhost:8001/user/login
-     * - 请求类型:  post
+     * 登录
+     * @param user
+     * @return
+     * 从应用域中获取username和 password
      */
-    @PutMapping("/login")
-    public Result login(Long uid,String username) {
-        return Result.ok("uid:3  name:admin");
+    @PostMapping("/login")
+    public Result login(@RequestBody User user,HttpServletRequest request) {
+        // 获取到的username和 password
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        //进行非空 判断
+        if (username == null || password == null) {
+            return Result.fail("用户名或密码不能为空！");
+        }
+
+       User dbUser= userService.login(user);
+       return dbUser!= null ? Result.ok(dbUser): Result.fail("登录失败！");
     }
-}
+    }

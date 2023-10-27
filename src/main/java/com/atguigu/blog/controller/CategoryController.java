@@ -16,6 +16,7 @@ import java.util.List;
  * @Version: 1.0
  * @Description:分类CategoryController层
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
@@ -33,22 +34,21 @@ private CategoryService categoryService;
     }
 
     /**
-     * 根据分类名获取分类列表
+     * 模糊查询文章列表
      * @param name
      * @return
      */
-    @GetMapping("/findListLikeName/{name}")
-    public Result findListLikeName(@PathVariable String name) {
+    @GetMapping("/findListLikeName")
+    public Result findListLikeName(String name) {
         List<Category> categories = categoryService.findListLikeName(name);
         return categories!= null&&categories.size() != 0 ? Result.ok(categories): Result.fail("未找到分类");
-
     }
 
     /**
      * 根据条件分页查询分类列表
-     * @param page:  当前页数
-     *@param limit: 每页记录数
-     *@param cname: 分类名称
+     * @param page: 当前页数
+     *@param limit:每页记录数
+     *@param cname:分类名称
      * @return
      */
     @GetMapping("/findByPage")

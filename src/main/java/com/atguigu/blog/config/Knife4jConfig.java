@@ -34,7 +34,7 @@ public class Knife4jConfig {
                         .title("微博客API接口文档")
                         .version("1.0")
                         .description("微博客API接口文档")
-                        .contact(new Contact().name("atguigu"))); // 设定作者
+                        .contact(new Contact().name("peiqi"))); // 设定作者
     }
 
 }

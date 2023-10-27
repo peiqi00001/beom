@@ -4,6 +4,7 @@ import com.atguigu.blog.entity.Article;
 import com.atguigu.blog.service.ArticleService;
 import com.atguigu.blog.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +14,9 @@ import java.util.List;
  * @Date: 2023/10/25 10:49
  * @Version: 1.0
  * @Description:文章controller层
+ *
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/article")
 public class ArticleController {
@@ -27,6 +30,7 @@ public class ArticleController {
      */
     @GetMapping("/findListByCid")
     public Result findListByCid(Long cid) {
+//        System.out.println(1/0);
         List<Article> articleList = articleService.findListByCid(cid);
         return Result.ok(articleList);
     }

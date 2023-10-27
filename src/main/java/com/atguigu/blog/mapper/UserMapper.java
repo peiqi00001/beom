@@ -16,4 +16,6 @@ public interface UserMapper {
     User findUserById(Long id);
 
     void updateUser(User user);
+
+    User getByUsernameAndPassword(User user);
 }

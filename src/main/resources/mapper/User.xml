@@ -10,4 +10,11 @@
     <select id="findUserById" resultType="com.atguigu.blog.entity.User">
         select * from user where uid=#{id}
     </select>
+    <select id="getByUsernameAndPassword" resultType="com.atguigu.blog.entity.User">
+        select * from user where username=#{username} and password=#{password}
+<where>
+
+
+</where>
+    </select>
 </mapper>
