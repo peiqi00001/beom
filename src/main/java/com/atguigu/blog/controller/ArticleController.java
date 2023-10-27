@@ -42,11 +42,7 @@ public class ArticleController {
         return Result.ok(article);
     }
 
-    /**
-     * 添加文章
-     * @param article
-     * @return
-     */
+
     @PostMapping("/insert")
     public Result insert(@RequestBody Article article) {
         articleService.insert(article);
