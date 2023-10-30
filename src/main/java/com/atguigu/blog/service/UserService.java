@@ -2,6 +2,8 @@ package com.atguigu.blog.service;
 
 import com.atguigu.blog.entity.User;
 
+import java.util.List;
+
 /**
  * @Author: 佩奇
  * @Date: 2023/10/25 11:09
@@ -14,4 +16,8 @@ public interface UserService {
     void updateUser(User user);
 
     User login(User user);
+
+    List<User> findUserByUsername(String username);
+
+    void register(User user);
 }

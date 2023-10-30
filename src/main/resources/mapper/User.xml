@@ -7,6 +7,9 @@
     phone=#{phone},introduction=#{introduction}
     ,update_time=now() where uid=#{uid}
     </update>
+    <update id="register">
+        insert into user values (null,#{username},#{password},#{phone},#{introduction},now(),now())
+    </update>
     <select id="findUserById" resultType="com.atguigu.blog.entity.User">
         select * from user where uid=#{id}
     </select>
@@ -16,5 +19,8 @@
 
 
 </where>
+    </select>
+    <select id="findUserByUsername" resultType="com.atguigu.blog.entity.User">
+        select username from user where username = #{username}
     </select>
 </mapper>

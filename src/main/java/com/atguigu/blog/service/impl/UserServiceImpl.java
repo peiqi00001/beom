@@ -6,6 +6,8 @@ import com.atguigu.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @Author: 佩奇
  * @Date: 2023/10/25 11:14
@@ -31,5 +33,15 @@ public class UserServiceImpl implements UserService{
     public User login(User user) {
         User dbUser = userMapper.getByUsernameAndPassword(user);
         return dbUser;
+    }
+
+    @Override
+    public List<User> findUserByUsername(String username) {
+        return userMapper.findUserByUsername(username);
+    }
+
+    @Override
+    public void register(User user) {
+        userMapper.register(user);
     }
 }
