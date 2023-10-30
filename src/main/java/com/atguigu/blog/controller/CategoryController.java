@@ -32,6 +32,7 @@ private CategoryService categoryService;
         List<Category> categories = categoryService.findAll();
         return Result.ok(categories);
     }
+
     /**
      * 模糊查询文章列表
      * @param name

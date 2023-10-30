@@ -12,6 +12,7 @@ import java.util.Date;
  * @Version: 1.0
  * @Description:用户实体类
  */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

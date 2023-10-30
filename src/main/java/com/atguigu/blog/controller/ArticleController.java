@@ -47,6 +47,7 @@ public class ArticleController {
     }
 
 
+
     @PostMapping("/insert")
     public Result insert(@RequestBody Article article) {
         articleService.insert(article);

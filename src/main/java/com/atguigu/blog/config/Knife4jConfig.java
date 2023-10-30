@@ -22,7 +22,6 @@ public class Knife4jConfig {
                 .pathsToMatch("/**")  // 接口请求路径规则
                 .build();
     }
-
     /***
      * @description 自定义接口信息
      */

@@ -18,7 +18,6 @@ import java.util.List;
 public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private ArticleMapper articleMapper;
-
     @Override
     public List<Article> findListByCid(Long cid) {
         return articleMapper.findListByCid(cid);

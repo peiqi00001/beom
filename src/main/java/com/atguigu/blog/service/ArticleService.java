@@ -15,6 +15,7 @@ public interface ArticleService {
 
     Article getById(Long id);
 
+
     void insert(Article article);
 
     void delete(Integer id);

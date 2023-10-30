@@ -11,8 +11,7 @@ import lombok.Getter;
 @Getter
 public enum ResultCodeEnum {
     SUCCESS(200,"成功٩(^ᴗ^)۶"),
-    FAIL(201, "失败༼ಢ_ಢ༽"),
-            ;
+    FAIL(201, "失败༼ಢ_ಢ༽"),;
 
     private Integer code;
     private String message;

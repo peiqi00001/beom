@@ -34,6 +34,7 @@ public class Result<T> {
         return result;
     }
 
+
     public static <T> Result<T> build(T body, ResultCodeEnum resultCodeEnum) {
         Result<T> result = build(body);
         result.setCode(resultCodeEnum.getCode());

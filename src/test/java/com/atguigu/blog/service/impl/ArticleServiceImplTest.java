@@ -21,6 +21,7 @@ class ArticleServiceImplTest {
 @Autowired
 private ArticleService articleService;
     @Test
+
     void findListByCid() {
         List<Article> articleList = articleService.findListByCid(2L);
         System.out.println("articleList = " + articleList);

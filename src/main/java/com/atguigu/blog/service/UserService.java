@@ -11,6 +11,7 @@ import java.util.List;
  * @Description:
  */
 public interface UserService {
+
     User findUserById(Long id);
 
     void updateUser(User user);
@@ -20,4 +21,5 @@ public interface UserService {
     List<User> findUserByUsername(String username);
 
     void register(User user);
+
 }

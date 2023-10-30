@@ -34,7 +34,6 @@ public class UserServiceImpl implements UserService{
         User dbUser = userMapper.getByUsernameAndPassword(user);
         return dbUser;
     }
-
     @Override
     public List<User> findUserByUsername(String username) {
         return userMapper.findUserByUsername(username);

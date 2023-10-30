@@ -38,7 +38,6 @@ public class CategoryServiceImpl implements CategoryService {
         return new PageInfo(categories);
 
     }
-
     @Override
     public void insert(Category category) {
         categoryMapper.insert(category);
